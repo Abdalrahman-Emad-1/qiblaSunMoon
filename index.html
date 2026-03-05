@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sky & Qibla Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Tajawal:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.9.0/suncalc.min.js"></script>
+</head>
+
+<body class="theme-sun" dir="ltr">
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <h1 id="app-title">Sky & Qibla Finder</h1>
+        <button id="lang-btn" class="lang-toggle-btn">عربي</button>
+    </header>
+
+    <!-- Main Compass Area -->
+    <main class="compass-container">
+
+        <!-- The Compass Circle -->
+        <div class="compass-circle" id="compass-circle">
+
+            <!-- Center Dot (User) -->
+            <div class="center-dot"></div>
+
+            <!-- Compass Rose (N, E, S, W) -->
+            <div class="compass-mark mark-n">N</div>
+            <div class="compass-mark mark-e">E</div>
+            <div class="compass-mark mark-s">S</div>
+            <div class="compass-mark mark-w">W</div>
+
+            <!-- Orbiting Icon Container -->
+            <div class="orbiting-icon-container" id="orbiting-container">
+                <div class="orbiting-icon" id="target-icon">
+                    <img src="https://api.iconify.design/lucide:sun.svg?color=white" alt="Target" id="icon-img" />
+                    <span id="target-label" class="target-label">Sun</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info / Debug Display -->
+        <div class="info-display">
+            <p id="status-msg">Waiting for permission...</p>
+            <p id="debug-info" style="display:none;"></p>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Buttons -->
+    <nav class="bottom-nav">
+        <button id="btn-sun" class="nav-btn active">
+            <span class="icon"
+                style="background-image: url('https://api.iconify.design/lucide:sun.svg?color=white');"></span>
+            <span class="btn-text" id="btn-text-sun">Sun Direction</span>
+        </button>
+        <button id="btn-moon" class="nav-btn">
+            <span class="icon"
+                style="background-image: url('https://api.iconify.design/lucide:moon.svg?color=white');"></span>
+            <span class="btn-text" id="btn-text-moon">Moon Direction</span>
+        </button>
+        <button id="btn-qibla" class="nav-btn">
+            <span class="icon"
+                style="background-image: url('https://api.iconify.design/lucide:box.svg?color=white');"></span>
+            <span class="btn-text" id="btn-text-qibla">Qibla Direction</span>
+        </button>
+    </nav>
+
+    <!-- Permission Overlay -->
+    <div id="permission-overlay" class="overlay active">
+        <div class="overlay-content">
+            <div class="compass-animation"></div>
+            <h2 id="overlay-title">Compass Access Required</h2>
+            <p id="overlay-desc">We need location and orientation access to show directions accurately.</p>
+            <button id="start-btn" class="primary-btn">Start & Calibrate</button>
+        </div>
+    </div>
+
+    <!-- Background Stars (for Moon Theme) -->
+    <div class="stars-bg"></div>
+
+    <!-- Background Islamic Pattern (for Qibla Theme) -->
+    <div class="islamic-pattern-bg"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
