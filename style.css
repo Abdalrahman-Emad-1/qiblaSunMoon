@@ -5,17 +5,17 @@
     --btn-inactive: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
 
-    /* Sun Theme - Softer Sunset Glow */
-    --sun-bg-1: #ff7e5f;
-    --sun-bg-2: #feb47b;
+    /* Sun Theme - Yellow */
+    --sun-bg-1: #FFD700;
+    --sun-bg-2: #FF8C00;
 
-    /* Moon Theme */
+    /* Moon Theme - Space Blue */
     --moon-bg-1: #0B0B2A;
     --moon-bg-2: #1B1B4A;
 
-    /* Qibla Theme */
-    --qibla-bg-1: #0A3622;
-    --qibla-bg-2: #198754;
+    /* Qibla Theme - Dark/Elegant */
+    --qibla-bg-1: #1a1a1a;
+    --qibla-bg-2: #000000;
 
     --transition-speed: 0.8s;
 }
@@ -39,11 +39,6 @@ body {
     transition: background var(--transition-speed) ease;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-}
-
-/* RTL Support */
-body[dir="rtl"] {
-    font-family: 'Tajawal', sans-serif;
 }
 
 /* Backgrounds for Themes (handled via pseudo-elements or fixed divs for smooth transitions) */
@@ -142,23 +137,6 @@ body.theme-qibla .islamic-pattern-bg {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.lang-toggle-btn {
-    background: var(--glass-border);
-    border: 1px solid var(--glass-border);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-family: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    transition: background 0.3s ease;
-}
-
-.lang-toggle-btn:hover {
-    background: var(--btn-active);
-}
-
 /* Main Compass Area */
 .compass-container {
     flex-grow: 1;
@@ -170,10 +148,31 @@ body.theme-qibla .islamic-pattern-bg {
     z-index: 5;
 }
 
-/* Compass Circle */
-.compass-circle {
+/* Compass Wrapper & View Cone */
+.compass-wrapper {
+    position: relative;
     width: min(80vw, 350px);
     height: min(80vw, 350px);
+}
+
+.view-cone {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Creates a 30-degree arc (15 deg left/right of top center) */
+    background: conic-gradient(from -15deg at 50% 50%, rgba(255, 255, 255, 0.25) 0deg, rgba(255, 255, 255, 0.25) 30deg, transparent 30deg);
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Compass Circle */
+.compass-circle {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     border: 3px solid rgba(255, 255, 255, 0.4);
     position: relative;
